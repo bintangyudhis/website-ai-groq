@@ -1,14 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Usia</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>Chat AI Groq</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Selamat Datang</h1>
-    <p>Masukkan tahun lahir Anda untuk menghitung usia.</p>
-    <a href="/usia">Hitung Usia</a>
+    <div class="kerangka">
+        <header class="kepala">
+            <div class="judul">
+                <h1>Chat AI Groq</h1>
+                <p class="model">Model {{ model }} dari Groq</p>
+            </div>
+            <button id="tombolBaru" type="button" class="tombol-baru">Percakapan Baru</button>
+        </header>
+
+        <div id="peringatan" class="peringatan" hidden>
+            Kunci API Groq belum diatur. Salin berkas .env.example menjadi .env,
+            isi GROQ_API_KEY, lalu jalankan ulang aplikasi agar asisten dapat menjawab.
+        </div>
+
+        <main id="daftarPesan" class="daftar-pesan" aria-live="polite"></main>
+
+        <div id="indikator" class="indikator" hidden>
+            <span class="titik"></span>
+            <span class="titik"></span>
+            <span class="titik"></span>
+            <span class="teks-indikator">Asisten sedang mengetik</span>
+        </div>
+
+        <form id="formulir" class="formulir">
+            <textarea id="kolomPesan" rows="1" placeholder="Tulis pesan Anda di sini" aria-label="Tulis pesan"></textarea>
+            <button id="tombolKirim" type="submit" class="tombol-kirim">Kirim</button>
+        </form>
+        <p class="petunjuk">Tekan Enter untuk mengirim, Shift dan Enter untuk baris baru.</p>
+    </div>
+    <script src="{{ url_for('static', filename='chat.js') }}"></script>
 </body>
 </html>
