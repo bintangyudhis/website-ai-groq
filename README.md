@@ -46,6 +46,10 @@ docker build -t website-ai-groq .
 docker run -p 5000:5000 website-ai-groq
 ```
 
+## Tangkapan Layar
+
+![Tangkapan layar halaman utama](docs/screenshot.png)
+
 ## Lisensi
 
 Proyek ini memakai lisensi MIT. Lihat berkas [LICENSE](LICENSE).
